@@ -1,7 +1,7 @@
-class Sorter {
+module.exports = class Sorter {
   constructor() {
-    this.arr=[];
-    this.compare = (a,b) => a-b;
+    this.arr = [];
+    this.compare = (a, b) => a - b;
   }
 
   add(element) {
@@ -21,17 +21,16 @@ class Sorter {
   }
 
   sort(indices) {
-    let arr1=[];
-    let compareFunction=this.compare;
+    let arr1 = [], compareFunction = this.compare;
 
-    for (let i=0; i<indices.length; i++) {
+    for (let i = 0; i < indices.length; i++) {
       arr1.push(this.arr[indices[i]]);
     }
 
-    indices.sort((a,b) => a-b);
+    indices.sort((a, b) => a - b);
     arr1.sort(compareFunction);
 
-    for (let i=0; i<indices.length; i++) {
+    for (let i = 0; i < indices.length; i++) {
       this.arr[indices[i]] = arr1[i];
     }
   }
@@ -40,5 +39,3 @@ class Sorter {
     this.compare = compareFunction;
   }
 }
-
-module.exports = Sorter;
